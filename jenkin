@@ -1,0 +1,17 @@
+node {
+    stage('Checkout') {
+        git url: 'https://github.com/Narahari1208/Caluclator.git'
+    }
+
+    stage('Build') {
+        sh 'mvn clean package'
+    }
+
+    stage('Test') {
+        sh 'mvn test'
+    }
+
+    stage('Deploy') {
+        sh './deploy.sh'
+    }
+}
